@@ -1,0 +1,49 @@
+let someTuple = (age: 0, name: "some name", surname: "some surname")
+let someTwoTuple = (age: 0, name: "some two name", surname: "some two surname")
+someTuple.0
+someTuple.1
+someTuple.2
+someTwoTuple.age
+someTwoTuple.name
+someTwoTuple.surname
+
+let daysInMonth = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
+for day in daysInMonth {
+    print(day)
+}
+
+let nameMonths = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
+for (index, quantity) in daysInMonth.enumerated() {
+    print("Month: \(nameMonths[index]), Days: \(quantity)")
+}
+
+var tupleArray = [(months: String, days: Int)]();
+for (index, quantity) in daysInMonth.enumerated() {
+    tupleArray.append((nameMonths[index], quantity))
+}
+for tuple in tupleArray {
+    print(tuple)
+}
+for tuple in tupleArray.reversed() {
+    print(tuple)
+}
+let (month, day) = (4, 28)
+let monthIndex = month - 1
+var sumDays = day
+for quantity in daysInMonth[0..<monthIndex] {
+    sumDays += quantity
+}
+
+var students: [String: Int] = ["Ivan Ivanov": 3]
+students["Ivan Ivanov"] = 5
+
+students["Petr Petrov"] = 4
+students["Sergej Sergeev"] = 3
+students["Olga Orlova"] =  1
+students.removeValue(forKey: "Olga Orlova")
+
+var sumResult = 0
+for value in students.values {
+    sumResult += value
+}
+let averageResult = Double(sumResult) / Double(students.count)
